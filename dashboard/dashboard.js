@@ -208,7 +208,7 @@ app.controller('DashboardController', ['$scope', '$routeParams', '$interval', '$
     $scope.selectedUserIndex = undefined;
     $scope.switch = function(fail) {
         if (fail == false) {
-            var r = confirm("Confirm switchover");
+            var r = confirm("Confirm switchover (" + $scope.clusters + ")");
             if (r == true) {
                 var response = $http.get('/switchover');
                 response.success(function(data, status, headers, config) {
@@ -219,7 +219,7 @@ app.controller('DashboardController', ['$scope', '$routeParams', '$interval', '$
                 });
             }
         } else {
-            var r2 = confirm("Confirm failover");
+            var r2 = confirm("Confirm failover (" + $scope.clusters + ")");
             if (r2 == true) {
                 var response2 = $http.get('/failover');
                 response2.success(function(data, status, headers, config) {
